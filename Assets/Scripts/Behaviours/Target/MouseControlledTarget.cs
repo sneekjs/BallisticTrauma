@@ -25,6 +25,7 @@
             //player.Camera.transform.Rotate(new Vector3(0, y * GameManager.Instance.Sensitivity, 0));
             //VRAAG HIER OM HULP MET HET AANROEPEN VAN SENSITIVITY!!
 
+            //En vraag hoe je fatsoenlijk overerft van een singleton zodat er maar 1 van iedere child class is
             //Nu je er toch bent, moet ik hier ook nog * Time.DeltaTime doen?
         }
     }
