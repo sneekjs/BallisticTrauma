@@ -12,5 +12,10 @@
         private GameObject _bullet;
 
         private float _rateOfFire;
+
+        public void Fire()
+        {
+            //maak via inheritance een weapon class aan voor ieder weapon type en rethink of weapon type miss weg kan
+        }
     }
 }

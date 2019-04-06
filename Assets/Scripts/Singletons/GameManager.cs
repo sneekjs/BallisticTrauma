@@ -10,5 +10,14 @@
         private GameState _gameState;
 
         private int _currentDifficulty = 1;
+
+        [SerializeField]
+        private float _sensitivity = 60;        
+
+        public float Sensitivity
+        {
+            get { return _sensitivity; }
+            set { _sensitivity = value; }
+        }
     }
 }

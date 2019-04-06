@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using UnityEngine;
 
+    [RequireComponent(typeof(Rigidbody))]
     public class Actor : MonoBehaviour
     {
         [SerializeField]
@@ -15,5 +16,18 @@
 
         [SerializeField]
         protected TakeDamageBehaviour takeDamageBehaviour;
+
+        private Rigidbody rigidbody1;
+
+        public Rigidbody Rigidbody
+        {
+            get { return rigidbody1; }
+            private set { rigidbody1 = value; }
+        }
+
+        private void Start()
+        {
+            Rigidbody = gameObject.GetComponent<Rigidbody>();
+        }
     }
 }

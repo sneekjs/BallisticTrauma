@@ -8,9 +8,15 @@
     public class MovingActor : Actor
     {
         [SerializeField]
-        protected float _speed;
+        private float speed;
 
         [SerializeField]
         protected MovementBehaviour _movementBehaviour;
+
+        public float Speed
+        {
+            get { return speed; }
+            set { speed = value; }
+        }
     }
 }

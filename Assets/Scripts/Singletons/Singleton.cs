@@ -6,7 +6,7 @@
 
     public abstract class Singleton : MonoBehaviour
     {
-        private static Singleton instance = null;
+        protected static Singleton instance = null;
 
         public static Singleton Instance
         {
