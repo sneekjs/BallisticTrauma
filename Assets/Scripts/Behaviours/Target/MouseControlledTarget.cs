@@ -8,6 +8,11 @@
 
     public class MouseControlledTarget : TargetBehaviour
     {
+        [SerializeField]
+        private float _viewRangeY = 80;
+
+        private float _rotY = 0;
+
         public override void Target(Actor actor)
         {
             throw new System.NotImplementedException();
@@ -15,18 +20,15 @@
 
         public override void Target(Player player)
         {
-            float x = Input.GetAxis("Mouse X");
+            float sensitivity = GameManager.Instance.Sensitivity;
 
-            //player.gameObject.transform.Rotate(new Vector3(0, x * GameManager.Instance.Sensitivity, 0));
-            //VRAAG HIER OM HULP MET HET AANROEPEN VAN SENSITIVITY!!
+            player.Camera.transform.Rotate(Vector3.left * Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime);
+            float _rotX = Input.GetAxis("Mouse X") * sensitivity;
+            _rotY += Input.GetAxis("Mouse Y") * sensitivity / 35;
+            _rotY = Mathf.Clamp(_rotY, -_viewRangeY, _viewRangeY);
 
-            float y = Input.GetAxis("Mouse Y");
-
-            //player.Camera.transform.Rotate(new Vector3(0, y * GameManager.Instance.Sensitivity, 0));
-            //VRAAG HIER OM HULP MET HET AANROEPEN VAN SENSITIVITY!!
-
-            //En vraag hoe je fatsoenlijk overerft van een singleton zodat er maar 1 van iedere child class is
-            //Nu je er toch bent, moet ik hier ook nog * Time.DeltaTime doen?
+            player.Camera.transform.localRotation = Quaternion.Euler(-_rotY, 0f, 0f);
+            player.transform.Rotate(Vector3.up * _rotX * Time.deltaTime);
         }
     }
 }
