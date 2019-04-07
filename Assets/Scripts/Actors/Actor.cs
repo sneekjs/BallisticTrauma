@@ -15,7 +15,7 @@
         protected DespawnBehaviour _despawnBehaviour;
 
         [SerializeField]
-        protected TakeDamageBehaviour takeDamageBehaviour;
+        protected TakeDamageBehaviour _takeDamageBehaviour;
 
         private Rigidbody rigidbody1;
 
