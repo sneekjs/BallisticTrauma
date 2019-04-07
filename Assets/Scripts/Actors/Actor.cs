@@ -22,10 +22,10 @@
         public Rigidbody Rigidbody
         {
             get { return rigidbody1; }
-            private set { rigidbody1 = value; }
+            set { rigidbody1 = value; }
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             Rigidbody = gameObject.GetComponent<Rigidbody>();
         }

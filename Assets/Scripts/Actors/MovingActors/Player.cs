@@ -26,10 +26,23 @@
         [SerializeField]
         private float _luck;
 
+        [SerializeField]
+        private GameObject _feetPosition;
+
+        private int _remainingJumps;
+
+        private bool _canResetJumps;
+
         public Camera Camera
         {
             get { return _camera; }
             private set { _camera = value; }
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            _remainingJumps = _jumpAmount;
         }
 
         private void Update()
@@ -38,6 +51,10 @@
             if (Input.GetButtonDown("Fire1"))
             {
                 FireWeapon();
+            }
+            if (Input.GetButtonDown("Jump") && _remainingJumps > 0)
+            {
+                Jump();
             }
         }
 
@@ -49,6 +66,48 @@
         private void FireWeapon()
         {
             _weapon.Fire();
+        }
+
+        private void Jump()
+        {
+            _canResetJumps = false;
+            Invoke("AllowJumpReset", 0.3f);
+
+            _remainingJumps--;
+            Rigidbody.velocity = new Vector3(Rigidbody.velocity.x, 0, Rigidbody.velocity.z);
+            Rigidbody.AddForce(0, _jumpHeight, 0, ForceMode.Impulse);
+        }
+
+        private void CheckJumpReset()
+        {
+            if (_remainingJumps != _jumpAmount && _canResetJumps)
+            {
+                RaycastHit hit;
+                Ray myRay = new Ray(_feetPosition.transform.position, _feetPosition.transform.TransformDirection(Vector3.down));
+
+                if (Physics.Raycast(myRay, out hit, 0.2f))
+                {
+                    if (hit.collider != null)         // Checks if you are hitting the Ground
+                    {
+                        _remainingJumps = _jumpAmount;
+                    }
+                }
+            }
+        }
+
+        private void AllowJumpReset()
+        {
+            _canResetJumps = true;
+        }
+
+        void OnCollisionStay(Collision collision)
+        {
+            CheckJumpReset();
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            CheckJumpReset();
         }
     }
 }
