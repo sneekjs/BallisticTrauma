@@ -13,7 +13,7 @@
 
         [SerializeField]
         private float _turningSpeed;
-
+        
         private bool _seesTarget = false;
 
         private GameObject _target;
@@ -31,7 +31,7 @@
             if (_seesTarget)
             {
                 AimAtTarget(_target.transform.position);
-                ShootAtTarget();
+                Shoot();
             }
             else
             {
@@ -59,9 +59,9 @@
             _moveableTurretHead.transform.rotation = Quaternion.RotateTowards(_moveableTurretHead.transform.rotation, targetQuaternion, _turningSpeed * Time.deltaTime);
         }
 
-        private void ShootAtTarget()
+        protected override void Shoot()
         {
-            //Shoot at target
+            base.Shoot();
         }
     }
 }
