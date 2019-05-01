@@ -278,6 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 58637776}
   - component: {fileID: 58637775}
+  - component: {fileID: 58637777}
   m_Layer: 0
   m_Name: UnlockManager
   m_TagString: Untagged
@@ -296,6 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17026e12cb5fd0749b7fc765e59bbee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _allWeapons:
+  - {fileID: 58637777}
 --- !u!4 &58637776
 Transform:
   m_ObjectHideFlags: 0
@@ -309,6 +312,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &58637777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 58637774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98117b433054aa5499c332144ffe3ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gunName: Basic Gun
+  _visuals: {fileID: 1615713052875700, guid: 149f569f851d4ea42a552fcfb24d9a4d, type: 2}
+  _weaponTransform: {fileID: 0}
+  _barrelPositions:
+  - {x: 0.341, y: -0.148, z: 0.889}
+  _firesIndividually: 1
+  _weaponType: 0
+  _bullet: {fileID: 1279405442228924, guid: f488b8130d0215744b41158a635c47ac, type: 2}
+  _fireRate: 60
 --- !u!1 &61484303
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +461,7 @@ RectTransform:
   - {fileID: 129546075}
   - {fileID: 1050492474}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1562,7 +1585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae1ff380321bc54da63d284b28c497c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shakeIntensity: 25
+  _camShakeIntensity: 25
 --- !u!1 &1251627698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,7 +1815,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479742077
 GameObject:
@@ -1905,46 +1928,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1693325004}
   m_CullTransparentMesh: 0
---- !u!1 &1722016839
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1722016841}
-  - component: {fileID: 1722016840}
-  m_Layer: 0
-  m_Name: UnlockManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1722016840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1722016839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17026e12cb5fd0749b7fc765e59bbee0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1722016841
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1722016839}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.8484387, y: -1.9762912, z: 2.178643}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1755230897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,7 +1998,7 @@ Transform:
   - {fileID: 1062292023}
   - {fileID: 1382367418}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1842120550
 GameObject:
@@ -2674,5 +2657,5 @@ Transform:
   - {fileID: 1955524431}
   - {fileID: 102640054}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

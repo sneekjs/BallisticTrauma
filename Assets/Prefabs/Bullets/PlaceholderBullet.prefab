@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canHitPlayer: 1
-  _damage: 1
+  _damage: 10
   _speed: 2.5
   _despawnBehaviour: {fileID: 114454684067550108}
 --- !u!135 &135220076587283526
