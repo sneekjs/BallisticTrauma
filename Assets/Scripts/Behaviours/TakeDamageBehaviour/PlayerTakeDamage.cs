@@ -9,7 +9,7 @@
     {
         [Range(0, 100)]
         [SerializeField]
-        private float _shakeIntensity = 25;
+        private float _camShakeIntensity = 25;
 
         public override void TakeDamage(Actor actor, float damage)
         {
@@ -33,9 +33,9 @@
             
             while(elapsed < duration)
             {
-                float x = Random.Range(-1f, 1f) * (damage / (100 - _shakeIntensity));
-                float y = Random.Range(-1f, 1f) * (damage / (100 - _shakeIntensity));
-                float z = Random.Range(-1f, 1f) * (damage / (100 - _shakeIntensity));
+                float x = Random.Range(-1f, 1f) * (damage / (100 - _camShakeIntensity));
+                float y = Random.Range(-1f, 1f) * (damage / (100 - _camShakeIntensity));
+                float z = Random.Range(-1f, 1f) * (damage / (100 - _camShakeIntensity));
 
                 camera.transform.localPosition = new Vector3(x, y, z);
 

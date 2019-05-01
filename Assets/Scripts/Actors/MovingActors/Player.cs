@@ -1,6 +1,7 @@
 ﻿namespace JorritSlaats.BallisticTrauma.Scripts.Actors
 {
     using JorritSlaats.BallisticTrauma.Scripts.Behaviours;
+    using JorritSlaats.BallisticTrauma.Scripts.Singletons;
     using JorritSlaats.BallisticTrauma.Scripts.UI;
     using JorritSlaats.BallisticTrauma.Scripts.Weapons;
     using System.Collections;
@@ -56,6 +57,10 @@
 
             PlayerUI = FindObjectOfType<PlayerUI>();
             PlayerUI.UpdateHealthBar(this);
+
+            _weapon = UnlockManager.Instance.AllWeapons[0];
+            GameObject gun = Instantiate(_weapon.Visuals, transform.position, transform.rotation);
+            gun.transform.parent = Camera.gameObject.transform;
         }
 
         private void Update()
@@ -78,7 +83,7 @@
 
         private void FireWeapon()
         {
-            _weapon.Fire();
+            _weapon.Fire(this);
         }
 
         private void Jump()
