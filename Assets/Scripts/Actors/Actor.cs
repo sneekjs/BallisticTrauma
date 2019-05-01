@@ -1,7 +1,7 @@
 ﻿namespace JorritSlaats.BallisticTrauma.Scripts.Actors
 {
-    using JorritSlaats.BallisticTrauma.Scripts.Behaviours;
     using JorritSlaats.BallisticTrauma.Scripts.Behaviours.DespawnBehaviours;
+    using JorritSlaats.BallisticTrauma.Scripts.Behaviours.TakeDamageBehaviours;
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;

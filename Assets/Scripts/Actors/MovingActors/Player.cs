@@ -1,6 +1,7 @@
 ﻿namespace JorritSlaats.BallisticTrauma.Scripts.Actors
 {
     using JorritSlaats.BallisticTrauma.Scripts.Behaviours;
+    using JorritSlaats.BallisticTrauma.Scripts.UI;
     using JorritSlaats.BallisticTrauma.Scripts.Weapons;
     using System.Collections;
     using System.Collections.Generic;
@@ -13,6 +14,7 @@
 
         [SerializeField]
         private TargetBehaviour _targetBehaviour;
+
 
         [SerializeField]
         private Weapon _weapon;
@@ -29,6 +31,8 @@
         [SerializeField]
         private GameObject _feetPosition;
 
+        private PlayerUI _playerUI;
+
         private int _remainingJumps;
 
         private bool _canResetJumps;
@@ -39,10 +43,20 @@
             private set { _camera = value; }
         }
 
+        public PlayerUI PlayerUI
+        {
+            get { return _playerUI; }
+            set { _playerUI = value; }
+        }
+
         protected override void Start()
         {
             base.Start();
+
             _remainingJumps = _jumpAmount;
+
+            PlayerUI = FindObjectOfType<PlayerUI>();
+            PlayerUI.UpdateHealthBar(this);
         }
 
         private void Update()

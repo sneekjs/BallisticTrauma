@@ -1,4 +1,4 @@
-﻿namespace JorritSlaats.BallisticTrauma.Scripts.Behaviours
+﻿namespace JorritSlaats.BallisticTrauma.Scripts.Behaviours.TakeDamageBehaviours
 {
     using JorritSlaats.BallisticTrauma.Scripts.Actors;
     using System.Collections;
@@ -14,7 +14,7 @@
 
             if (actor.CurrentHealth == 0)
             {
-                actor.DespawnBehaviour.CheckDespawn();
+                //actor.DespawnBehaviour.CheckDespawn();
             }
         }
     }
