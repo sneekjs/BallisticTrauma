@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 61484304}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BulletSpawn1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 102640054}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MovableHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 517808225}
   - component: {fileID: 517808224}
   - component: {fileID: 517808223}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 3383
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 791929450}
   - component: {fileID: 791929449}
   - component: {fileID: 791929448}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1083,6 +1083,7 @@ GameObject:
   - component: {fileID: 1070055524}
   - component: {fileID: 1070055528}
   - component: {fileID: 1070055529}
+  - component: {fileID: 1070055530}
   - component: {fileID: 1070055527}
   - component: {fileID: 1070055526}
   m_Layer: 11
@@ -1103,9 +1104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb28dccf99d60a458bb356b481ff929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  _maxHealth: 100
+  _currentHealth: 0
   _despawnBehaviour: {fileID: 0}
-  _takeDamageBehaviour: {fileID: 0}
+  _takeDamageBehaviour: {fileID: 1070055530}
   speed: 5
   _movementBehaviour: {fileID: 1070055528}
   _camera: {fileID: 534669904}
@@ -1182,6 +1184,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewRangeY: 80
+--- !u!114 &1070055530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1070055523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47abec25ccccd65418fa1b0713ae8da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1251627698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,7 +1405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522d9070311e73541bea860400dfe34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
+  _maxHealth: 0
+  _currentHealth: 0
   _despawnBehaviour: {fileID: 0}
   _takeDamageBehaviour: {fileID: 0}
   _bulletPrefab: {fileID: 1279405442228924, guid: f488b8130d0215744b41158a635c47ac,
@@ -1559,7 +1573,7 @@ GameObject:
   - component: {fileID: 1955524434}
   - component: {fileID: 1955524433}
   - component: {fileID: 1955524432}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1729,7 +1743,7 @@ GameObject:
   - component: {fileID: 2143973347}
   - component: {fileID: 2143973346}
   - component: {fileID: 2143973345}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StaticEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1747,7 +1761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f7c19431ceff743a9ad334c57bed0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 20
+  _maxHealth: 0
+  _currentHealth: 0
   _despawnBehaviour: {fileID: 0}
   _takeDamageBehaviour: {fileID: 0}
   _bulletPrefab: {fileID: 1279405442228924, guid: f488b8130d0215744b41158a635c47ac,

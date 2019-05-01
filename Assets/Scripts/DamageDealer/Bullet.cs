@@ -1,6 +1,7 @@
 ﻿namespace JorritSlaats.BallisticTrauma.Scripts.DamageDealer
 {
-    using JorritSlaats.BallisticTrauma.Scripts.Behaviours;
+    using JorritSlaats.BallisticTrauma.Scripts.Actors;
+    using JorritSlaats.BallisticTrauma.Scripts.Behaviours.DespawnBehaviours;
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
@@ -31,6 +32,17 @@
         {
             get { return _rigidbody; }
             private set { _rigidbody = value; }
+        }
+
+        private void OnTriggerEnter(Collider collider)
+        {
+            _despawnBehaviour.CheckDespawn(collider, _damage);
+
+            Player player = collider.gameObject.GetComponent<Player>();
+            if (_canHitPlayer && player != null)
+            {
+                player.TakeDamageBehaviour.TakeDamage(player, _damage);
+            }
         }
     }
 }

@@ -8,9 +8,9 @@
     public class DamageDealer : MonoBehaviour
     {
         [SerializeField]
-        private bool _canHitPlayer;
+        protected bool _canHitPlayer;
         
         [SerializeField]
-        private float _damage;
+        protected float _damage;
     }
 }

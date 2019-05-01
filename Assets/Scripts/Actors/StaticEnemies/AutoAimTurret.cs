@@ -49,7 +49,15 @@
 
             if (Physics.Raycast(myRay, out hit))
             {
-                _seesTarget = hit.collider.CompareTag("Player");
+                if (hit.collider.CompareTag("Player") == true)
+                {
+                    _seesTarget = true;
+                }
+                else
+                {
+                    _seesTarget = false;
+                }
+                //_seesTarget = hit.collider.CompareTag("Player");
             }
         }
 
