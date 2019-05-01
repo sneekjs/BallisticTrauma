@@ -15,7 +15,6 @@
         [SerializeField]
         private TargetBehaviour _targetBehaviour;
 
-
         [SerializeField]
         private Weapon _weapon;
 
